@@ -18,7 +18,11 @@ const icon = L.icon({
     popupAnchor: [170,2]
 })
 // Create and add marker
-L.marker([-22.5517946,-45.7789629], { icon })
+const spanLat = document.querySelector('span[data-lata]')
+const spanLng = document.querySelector('span[data-lng]')
+console.log(spanLat)
+L
+.marker([-22.5517946,-45.7789629], { icon })
 .addTo(map)
 
 /* Image gallery */
