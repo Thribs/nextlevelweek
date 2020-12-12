@@ -5,8 +5,13 @@ const options = {
     scrollWheelZoom: false,
     zoomControl: false,
 }
+
+// get values from html
+const lat = document.querySelector('span[data-lat]').dataset.lat
+const lng = document.querySelector('span[data-lng]').dataset.lng
+
 // Create map
-const map = L.map('mapid', options).setView([-22.5517946,-45.7789629], 16);
+const map = L.map('mapid', options).setView([lat, lng], 16);
 
 // Create and add titleLayer
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",).addTo(map);
@@ -18,11 +23,8 @@ const icon = L.icon({
     popupAnchor: [170,2]
 })
 // Create and add marker
-const spanLat = document.querySelector('span[data-lata]')
-const spanLng = document.querySelector('span[data-lng]')
-console.log(spanLat)
 L
-.marker([-22.5517946,-45.7789629], { icon })
+.marker([lat, lng], { icon })
 .addTo(map)
 
 /* Image gallery */

@@ -83,3 +83,13 @@ function toggleSelect() {
     input.value = button.dataset.value
 
 }
+
+function validate(event) {
+    const lat = document.querySelector('[name=lat]').value
+    const lng = document.querySelector('[name=lng]').value
+    const checkMarker = lat == '' || lng == '';
+    if (checkMarker) {
+        event.preventDefault()
+        alert('Selecione um ponto no mapa')
+    }
+}
